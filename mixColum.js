@@ -171,15 +171,20 @@ function multiplyAndShow() {
   const hex2 = document.getElementById("hex2").value;
 
   try {
-    const { combinedResult, finalResult } = multiplyHexReduced(hex1, hex2);
-    const { binary: binaryString, hex: hexValue } =
-      convertToNumber(combinedResult);
-    // const { binary, hex } = convertPolyToHex(combinedResult);
-    const resultElement1 = document.getElementById("resultBinary");
-    resultElement1.textContent = `Reduced Binary: ${binaryString}`;
+ if (hex1 == 0 || hex2 == 0) {
+      // const { binary, hex } = convertPolyToHex(combinedResult);
+      const resultElement1 = document.getElementById("resultBinary");
+      resultElement1.textContent = `Reduced Binary: 00000000`;
 
-    const resultElement2 = document.getElementById("resultHex");
-    resultElement2.textContent = `Reduced Hex:${ hexValue}`;
+      const resultElement2 = document.getElementById("resultHex");
+      resultElement2.textContent = `Reduced Hex: 00`;
+    } else {
+      const resultElement1 = document.getElementById("resultBinary");
+      resultElement1.textContent = `Reduced Binary: ${binaryString}`;
+
+      const resultElement2 = document.getElementById("resultHex");
+      resultElement2.textContent = `Reduced Hex:${hexValue}`;
+    }
   } catch (error) {
     console.error("Error:", error);
     alert(
