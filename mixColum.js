@@ -187,7 +187,7 @@ const { combinedResult, finalResult } = multiplyHexReduced(hex1, hex2);
       resultElement2.textContent = `Reduced Hex:${hexValue}`;
     }
     }
-  } catch (error) {
+  catch (error) {
     console.error("Error:", error);
     alert(
       "Invalid input or error occurred. Please check the values and try again."
